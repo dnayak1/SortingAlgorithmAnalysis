@@ -45,5 +45,4 @@ public class LCS3Input {
         return sb.toString();
     }
 	
-
 }
