@@ -17,15 +17,18 @@ public class MainControl {
 		TakeRange takeRange = new TakeRange();
 		IMakeInputArray makeInput = new RandomInput();
 		IPrepareTestFile testFile = new PrepareAverageCase();
-		//ISort sort = new InsertionSort();
-		ISort sort = new CountingSort();
-		//ISort sort = new MergeSort();
+		ISort iSort = new InsertionSort();
+		ISort cSort = new CountingSort();
+		ISort mSort = new MergeSort();
 		range = takeRange.SendMaxMinAndSize();
 		inputList = makeInput.makeInputArray(range);
+		if(inputList == null){
+			return;
+		}
 		fileName = testFile.prepareFile(inputList);
 		inputArray = FileHandler.makeOutputArray(fileName);
 		outputArray = sort.sort(inputArray,inputArray.length);
-		outputStr = "Total time :" + sort.getTotalTime();
+		outputStr = "Total time :" + sort.getTotalTime()+" ms";
 		outputStr = outputStr + System.lineSeparator() + FileHandler.arrayToString(outputArray);
 		try{
 			FileHandler.writeToFile("AverageCaseOutput.txt", outputStr);

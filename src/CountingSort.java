@@ -17,6 +17,7 @@ public class CountingSort implements ISort{
 	}
 	
 	public int[] sort(int[] array,int n) {
+		startTime=System.nanoTime();
         
 		if (n == 0)
             return array;
@@ -38,7 +39,6 @@ public class CountingSort implements ISort{
         
         for (int i = 0; i < n; i++)
             count[array[i] - min]++;
-        	//count[array[i]] = count[array[i]] + 1;
 
         for (int i = 1; i < range; i++)
             count[i] += count[i - 1];
@@ -51,15 +51,8 @@ public class CountingSort implements ISort{
                 array[j++] = i + min;
             }
         }
-        
-        /*int[] sortedArray = new int[n+1];
-        
-        for (int i = n; i>=0; i--){
-        	sortedArray[count[array[i]]] = array[i];
-        	count[array[i]]--;
-        }
-        
-        return sortedArray;*/
+        stopTime=System.nanoTime();
+		totalTime = (stopTime-startTime)/1000.0;
         return array;
         
     }

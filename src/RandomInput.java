@@ -13,13 +13,13 @@ public class RandomInput implements IMakeInputArray{
 		int upperLimit = inputRange[1];
 		int lowerLimit = inputRange[0];	
 		int inputSize = inputRange[2];
-	//((upperLimit-lowerLimit)<=100000) &&
 		if(upperLimit>lowerLimit && inputSize<(upperLimit-lowerLimit)){	
 			for(int i=0;i<inputSize;i++){
 				numbers.add(rand.nextInt((upperLimit - lowerLimit) + 1) + lowerLimit);
 			}
 		}
 		else{
+			numbers = null;
 			System.out.println("Invalid input");
 		}
 		return numbers;

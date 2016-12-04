@@ -6,24 +6,6 @@ public class InsertionSort implements ISort{
 	private long stopTime;
 	private double totalTime;
 	
-	
-	/*public int[] is {
-	     
-		int i;
-	    if (n > 1) 
-	        Sort(array, n - 1);
-	    else {
-	        int k = array[n];
-	        i = n - 1;
-	        while (i >= 0  &&  array[i] > k) {
-	            array[i + 1] = array[i];
-	            i = i - 1;
-	        }
-	        array[i + 1] = k;
-	    }
-	    return array;
-	 }*/
-	
 	public double getTotalTime() {
 		return totalTime;
 	}
@@ -48,7 +30,7 @@ public class InsertionSort implements ISort{
 	        array[i+1] = key;
 	    }
 	    stopTime=System.nanoTime();
-		totalTime = (stopTime-startTime)/1000000000.0;
+		totalTime = (stopTime-startTime)/1000.0;
 	    return array;
 	}
 }

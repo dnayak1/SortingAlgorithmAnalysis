@@ -17,6 +17,7 @@ public class MergeSort implements ISort{
 	}
 	
 	public int[] sort(int array[],int n) {
+		startTime=System.nanoTime();
 		
         if (n < 2)
             return array;
@@ -35,32 +36,33 @@ public class MergeSort implements ISort{
         sort(left,left.length);
         sort(right,right.length);
         merge(left, right, array);
+        stopTime=System.nanoTime();
+		totalTime = (stopTime-startTime)/1000.0;
         return array;
     }
 
     public static void merge(int[] left, int[] right, int[] arr) {
      
     	int leftSize = left.length;
-    	int rightSize = left.length;
+    	int rightSize = right.length;
     	
         int i = 0, j = 0, k = 0;
         while (i < leftSize && j < rightSize) {
             if (left[i] <= right[j]) {
                 arr[k] = left[i];
                 i++;
-                k++;
             } else {
                 arr[k] = right[j];
-                k++;
                 j++;
             }
+            k++;
         }
         while (i < leftSize) {
             arr[k] = left[i];
             k++;
             i++;
         }
-        while (j < leftSize) {
+        while (j < rightSize) {
             arr[k] = right[j];
             k++;
             j++;
