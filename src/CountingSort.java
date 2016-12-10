@@ -16,7 +16,14 @@ public class CountingSort implements ISort{
 		this.totalTime = totalTime;
 	}
 	
-	public int[] sort(int[] array,int n) {
+	public int[] sort(int[] input,int n) {
+		
+		int[] array = new int[input.length];
+		
+		//making a copy of initial array.
+		System.arraycopy(input, 0, array, 0, input.length);
+		
+		//starting the timer.
 		startTime=System.nanoTime();
         
 		if (n == 0)
@@ -51,8 +58,11 @@ public class CountingSort implements ISort{
                 array[j++] = i + min;
             }
         }
+        
+        //stopping the timer and taking difference if start and stop times.
         stopTime=System.nanoTime();
 		totalTime = (stopTime-startTime)/1000.0;
+		
         return array;
         
     }

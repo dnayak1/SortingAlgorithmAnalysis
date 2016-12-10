@@ -1,0 +1,2 @@
+Input Size: 5 | Total time :6.826 ms
+3, 3, 5, 7, 9

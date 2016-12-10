@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
-public class PrepareAverageCase implements IPrepareTestFile {
+public class PrepareRandom implements IPrepareTestFile {
 
 	public String prepareFile(List<Integer> input){
 		String str="";
@@ -15,14 +15,14 @@ public class PrepareAverageCase implements IPrepareTestFile {
 		
 		try{
 			str=FileHandler.removeComma(str.trim());		
-			FileHandler.writeToFile("AverageCaseInput.txt", str);		
+			FileHandler.writeToFile("randomInput.txt", str);		
 		}
 		catch(IOException e){
 			System.out.println("Invalid argument");
 		}
 		
-		System.out.println("Input file for average case exported to the directory");
-		return("AverageCaseInput.txt");
+		System.out.println("Input file for random input exported to the directory");
+		return("randomInput.txt");
 		
 		
 			

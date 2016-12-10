@@ -16,8 +16,14 @@ public class InsertionSort implements ISort{
 	}
 
 
-	public int[] sort(int[] array, int n) {
+	public int[] sort(int[] input, int n) {
 		
+		int[] array = new int[input.length];
+		
+		//making a copy of initial array.
+		System.arraycopy(input, 0, array, 0, input.length);
+		
+		//start the timer.
 		startTime=System.nanoTime();
 	
 	    for (int j = 1; j < n; j++) {
@@ -29,6 +35,8 @@ public class InsertionSort implements ISort{
 	        }
 	        array[i+1] = key;
 	    }
+	    
+	    //stopping the timer and taking the time difference 
 	    stopTime=System.nanoTime();
 		totalTime = (stopTime-startTime)/1000.0;
 	    return array;

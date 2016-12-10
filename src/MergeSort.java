@@ -16,29 +16,34 @@ public class MergeSort implements ISort{
 		this.totalTime = totalTime;
 	}
 	
-	public int[] sort(int array[],int n) {
+	public int[] sort(int[] input,int n) {
+		
+		
+		//starting the timer.
 		startTime=System.nanoTime();
 		
         if (n < 2)
-            return array;
+            return input;
         int mid = n / 2;
         int leftSize = mid;
         int rightSize = n - mid;
         int[] left = new int[leftSize];
         int[] right = new int[rightSize];
         for (int i = 0; i < mid; i++) {
-            left[i] = array[i];
+            left[i] = input[i];
 
         }
         for (int i = mid; i < n; i++) {
-            right[i - mid] = array[i];
+            right[i - mid] = input[i];
         }
         sort(left,left.length);
         sort(right,right.length);
-        merge(left, right, array);
+        merge(left, right, input);
+        
+        //stopping the timer and taking difference between start and stop times.
         stopTime=System.nanoTime();
 		totalTime = (stopTime-startTime)/1000.0;
-        return array;
+        return input;
     }
 
     public static void merge(int[] left, int[] right, int[] arr) {

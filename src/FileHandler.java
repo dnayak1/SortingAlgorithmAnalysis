@@ -11,6 +11,7 @@ import java.util.List;
 
 public class FileHandler {
 
+	//this writes string in a the given file name.
 	public static void writeToFile(String fileName,String output) throws IOException {
 		try{
 			File file=new File(fileName);
@@ -26,7 +27,9 @@ public class FileHandler {
 		
 	}
 	
-	public static int[] makeOutputArray(String fileName){
+	
+	//this makes array from the comma separated values obtained from the given file name.
+	public static int[] makeArray(String fileName){
 		
 		List<Integer> outputList = new ArrayList<Integer>();
 		int[] outputArray;
@@ -62,6 +65,7 @@ public class FileHandler {
 		return outputArray;
 	}
 	
+	//this removes comma from the end of a sequence.
 	public static String removeComma(String str) {
 		if (str != null && str.length() > 0 && str.charAt(str.length()-1)==',') {
 		      str = str.substring(0, str.length()-1);
@@ -69,6 +73,8 @@ public class FileHandler {
 		    return str;
 	}
 	
+	
+	//this converts array to a string.
 	public static String arrayToString(int[] input){
 		
 		String str="";
@@ -76,33 +82,23 @@ public class FileHandler {
 			str=str+(input[i]) + "," + " ";
 		}
 		
+		str = FileHandler.removeComma(str.trim());
 		return str;	
 		
 	}
 	
+	
+	//this converts list to a string.
 	public static String listToString(List<Integer> input){
 		
 		String str="";
 		for(int i=0; i<input.size();i++){
-			str=str+(input.get(0)) + "," + " ";
+			str=str+(input.get(i)) + "," + " ";
 		}
 		
 		return str;	
 		
 	}
 	
-	public static String formSequence(String input){
-		
-		String str="";
-		String[]  in = input.split(",");
-		for(int i=0; i<in.length;i++){
-			in[i]=in[i].trim();
-			str = str + in[i];
-		}
-		
-		return str;	
-		
-	}
-
 
 }
